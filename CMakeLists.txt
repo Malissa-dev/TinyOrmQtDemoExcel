@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.22)
 
 # ---- Project and Global Settings ----
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(TinyOrmQtDemo LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -21,7 +23,7 @@ if (MSVC)
 endif()
 
 # ---- Qt Setup ----
-set(QT_INSTALL_DIR "C:/Qt/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
+set(QT_INSTALL_DIR "C:/Qt6/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
 list(APPEND CMAKE_PREFIX_PATH ${QT_INSTALL_DIR})
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)
@@ -29,6 +31,9 @@ qt_standard_project_setup()
 
 # ---- Conan Dependencies ----
 find_package(tinyorm REQUIRED)
+
+# ---- OpenXSLX
+add_subdirectory(external/OpenXLSX)
 
 # ---- Sources ----
 file(GLOB_RECURSE SOURCES "src/*.cpp")
@@ -45,6 +50,7 @@ target_link_libraries(TinyOrmQtDemo
         Qt6::Widgets
         Qt6::Sql
         tinyorm::tinyorm
+        OpenXLSX::OpenXLSX
 )
 
 # ---- Qt Deployment ----

@@ -25,7 +25,7 @@ class TinyOrmConan(ConanFile):
         self.requires("tabulate/1.5", transitive_headers=True, transitive_libs=True)
 
     def generate(self):
-        qt_path = os.environ.get("QT_INSTALL_DIR", "C:/Qt/6.10.0/msvc2022_64")
+        qt_path = os.environ.get("QT_INSTALL_DIR", "C:/Qt6/6.10.0/msvc2022_64")
         tc = CMakeToolchain(self)
         tc.variables["BUILD_SHARED_LIBS"] = "ON" if self.options.shared else "OFF"
         tc.variables["TOM"] = "ON"
@@ -41,7 +41,7 @@ class TinyOrmConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        qt_path = "C:/Qt/6.10.0/msvc2022_64"
+        qt_path = "C:/Qt6/6.10.0/msvc2022_64"
         cmake.configure(variables={
             "CMAKE_PREFIX_PATH": qt_path
         })
