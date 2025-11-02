@@ -119,3 +119,5 @@ This application is licensed under the **MIT License**.
 
 - [Qt](https://www.qt.io/) — LGPL 3.0  
 - [TinyORM](https://github.com/fnc12/tinyorm) — MIT License
+- [OpenXLSX] https://github.com/troldal/OpenXLSX - BSD 3-Clause License
+
