@@ -27,10 +27,32 @@ It showcases a basic integration of a Qt GUI with TinyORM models using modern C+
 
 > These instructions assume a Windows + MSVC 2022 environment. Other compilers or OSes may require additional configuration.
 
-1. **Install Qt 6.10** using the official installer and note the install path (e.g., `C:/Qt/6.10.0/msvc2022_64`).  
-
-
-2. **Install Conan2** if not already installed:
+1. **Install Qt 6.10** using the official installer and note the install path (e.g., `C:/Qt/6.10.0/msvc2022_64`).
+   OR install with the offline version as follow :
+   1. Download qtbase-everywhere-src-6.10.0.zip from https://download.qt.io/official_releases/qt/6.10/6.10.0/submodules/
+   2. Extract to a folder that has a short path like "c:\qtbase"
+   3. Create forlder C:\Qt\6.10.0\msvc2022_64
+   4. Open "x64 Native Tools Command Prompt for VS 2022" and cd to the folder from step 2
+   5. Configure using the following command
+      ```
+       configure.bat -prefix C:\Qt\6.10.0\msvc2022_64 -opensource -confirm-license
+      ```
+   6. once that works it will tell you what to do next  :
+      ```
+      cmake --build . --parallel
+		cmake --install .
+      ```
+   7.  Make sure the path in the cmakelist.txt matches the installation path provided in step 3 and 5. Here is an example
+    ```
+    # ---- Qt Setup ----
+    Set(QT_INSTALL_DIR "C:/Qt/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
+    list(APPEND CMAKE_PREFIX_PATH ${QT_INSTALL_DIR})
+	 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)
+    qt_standard_project_setup()
+     ```
+    Note: qtbase-everywhere comes with all the Qt modules this project needs currently, if we need more we can always add additional modules from the link of step 1. The deployment tools also come with qtbase-everywhere
+   
+3. **Install Conan2** if not already installed:
 
 ```
 pip install conan
@@ -120,4 +142,5 @@ This application is licensed under the **MIT License**.
 - [Qt](https://www.qt.io/) — LGPL 3.0  
 - [TinyORM](https://github.com/fnc12/tinyorm) — MIT License
 - [OpenXLSX] https://github.com/troldal/OpenXLSX - BSD 3-Clause License
+
 
