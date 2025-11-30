@@ -35,7 +35,7 @@ It showcases a basic integration of a Qt GUI with TinyORM models using modern C+
    4. Open "x64 Native Tools Command Prompt for VS 2022" and cd to the folder from step 2
    5. Configure using the following command
       ```
-       configure.bat -prefix C:\Qt\6.10.0\msvc2022_64 -opensource -confirm-license
+       configure.bat -prefix C:\Qt\6.10.0\msvc2022_64 -opensource -confirm-license -debug-and-release
       ```
    6. once that works it will tell you what to do next  :
       ```
@@ -142,5 +142,6 @@ This application is licensed under the **MIT License**.
 - [Qt](https://www.qt.io/) — LGPL 3.0  
 - [TinyORM](https://github.com/fnc12/tinyorm) — MIT License
 - [OpenXLSX] https://github.com/troldal/OpenXLSX - BSD 3-Clause License
+
 
 
