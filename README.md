@@ -39,16 +39,16 @@ It showcases a basic integration of a Qt GUI with TinyORM models using modern C+
       ```
    6. once that works it will tell you what to do next  :
       ```
-      cmake --build . --parallel
+      	cmake --build . --parallel
 		cmake --install .
       ```
    7.  Make sure the path in the cmakelist.txt matches the installation path provided in step 3 and 5. Here is an example
     ```
     # ---- Qt Setup ----
-    Set(QT_INSTALL_DIR "C:/Qt/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
-    list(APPEND CMAKE_PREFIX_PATH ${QT_INSTALL_DIR})
-	 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)
-    qt_standard_project_setup()
+	set(QT_INSTALL_DIR "${CMAKE_SOURCE_DIR}/external/Qt/msvc2022_64" CACHE PATH "Path to Qt installation")
+	list(APPEND CMAKE_PREFIX_PATH ${QT_INSTALL_DIR})
+	find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)
+	qt_standard_project_setup()
      ```
     Note: qtbase-everywhere comes with all the Qt modules this project needs currently, if we need more we can always add additional modules from the link of step 1. The deployment tools also come with qtbase-everywhere
    
@@ -142,6 +142,7 @@ This application is licensed under the **MIT License**.
 - [Qt](https://www.qt.io/) — LGPL 3.0  
 - [TinyORM](https://github.com/fnc12/tinyorm) — MIT License
 - [OpenXLSX] https://github.com/troldal/OpenXLSX - BSD 3-Clause License
+
 
 
 
