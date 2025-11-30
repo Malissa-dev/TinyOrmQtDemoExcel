@@ -23,7 +23,8 @@ if (MSVC)
 endif()
 
 # ---- Qt Setup ----
-set(QT_INSTALL_DIR "C:/Qt6/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
+#set(QT_INSTALL_DIR "C:/Qt/6.10.0/msvc2022_64" CACHE PATH "Path to Qt installation")
+set(QT_INSTALL_DIR "${CMAKE_SOURCE_DIR}/external/Qt/msvc2022_64" CACHE PATH "Path to Qt installation")
 list(APPEND CMAKE_PREFIX_PATH ${QT_INSTALL_DIR})
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Sql)

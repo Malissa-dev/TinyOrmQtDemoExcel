@@ -27,7 +27,7 @@ It showcases a basic integration of a Qt GUI with TinyORM models using modern C+
 
 > These instructions assume a Windows + MSVC 2022 environment. Other compilers or OSes may require additional configuration.
 
-1. **Install Qt 6.10** using the official installer and note the install path (e.g., `C:/Qt/6.10.0/msvc2022_64`).  
+1. **Install Qt 6.10** using the official installer and note the install path (e.g., `${CMAKE_SOURCE_DIR}/external/Qt/msvc2022_64`).  
 
 
 2. **Install Conan2** if not already installed:
